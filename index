@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FitClub 1040EZ Tax Day Deal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .banner-container {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      overflow: hidden;
+      color: #fff;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .banner-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://www.fitclub.net/sites/ob-143.app.sitewright.io/files/image/2024-09/west%20weights2%20%281%29.JPG');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.6);
+      z-index: 0;
+    }
+
+    .dollar-rain {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .dollar {
+      position: absolute;
+      top: -10%;
+      font-size: 1.5em;
+      color: #00ff66;
+      opacity: 0.8;
+      user-select: none;
+      animation-name: rain;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+
+    @keyframes rain {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(110vh) rotate(360deg); }
+    }
+
+    .banner-content {
+      position: relative;
+      z-index: 2;
+      padding: 20px;
+      max-width: 800px;
+      width: 100%;
+    }
+
+    .main-message {
+      font-size: 3em;
+      margin-bottom: 0.5em;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+      padding: 0 20px;
+      word-wrap: break-word;
+    }
+
+    .highlights {
+      font-size: 1.5em;
+      margin-bottom: 1em;
+      line-height: 1.4;
+      padding: 0 20px;
+    }
+
+    .highlights div {
+      margin-bottom: 0.5em;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 15px 30px;
+      background-color: #00cc66;
+      color: #fff;
+      text-transform: uppercase;
+      font-size: 1.2em;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 0 10px rgba(0, 255, 100, 0.5);
+      margin-bottom: 20px;
+      animation: pulse 2.5s infinite;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #00994d;
+      transform: scale(1.05);
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .countdown {
+      font-size: 2em;
+      font-weight: bold;
+      color: #ffeb3b;
+      margin-top: 20px;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+    }
+
+    @media (max-width: 768px) {
+      .main-message { font-size: 2em; }
+      .highlights { font-size: 1.2em; }
+      .cta-button {
+        font-size: 1em;
+        padding: 12px 25px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .main-message { font-size: 1.5em; }
+      .highlights { font-size: 1em; }
+      .cta-button {
+        font-size: 0.9em;
+        padding: 10px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="banner-container">
+    <div class="banner-background"></div>
+    <div class="dollar-rain" aria-hidden="true"></div>
+
+    <!-- Version WITHOUT CTA -->
+    <div class="banner-content">
+      <div class="main-message">FitClub’s 1040EZ Tax Day Deal Ends April 15</div>
+      <div class="highlights">
+        <div>💵 Just $10.40 To Start</div>
+        <div>🎉 First Month Free</div>
+      </div>
+      <div class="countdown" id="countdown"></div>
+    </div>
+  </div>
+
+  <script>
+    const rainContainer = document.querySelector('.dollar-rain');
+    const dropCount = 40;
+
+    for (let i = 0; i < dropCount; i++) {
+      const drop = document.createElement('div');
+      drop.classList.add('dollar');
+      drop.textContent = '$';
+
+      const size = Math.random() * 1.5 + 0.5;
+      drop.style.fontSize = size + 'em';
+      drop.style.left = Math.random() * 100 + '%';
+      const duration = Math.random() * 10 + 5;
+      drop.style.animationDuration = duration + 's';
+      drop.style.animationDelay = Math.random() * 10 + 's';
+      drop.style.opacity = Math.random() * 0.5 + 0.5;
+
+      rainContainer.appendChild(drop);
+    }
+
+    const countdownEl = document.getElementById('countdown');
+    const deadline = new Date('April 15, 2025 23:59:59').getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = deadline - now;
+
+      if (distance < 0) {
+        countdownEl.innerText = "Offer expired. IRS says 'maybe next year...'";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownEl.innerText = `Only ${days}d ${hours}h ${minutes}m ${seconds}s left to join for $10.40!`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
