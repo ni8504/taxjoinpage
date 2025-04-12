@@ -90,6 +90,7 @@
 
     .highlights div {
       margin-bottom: 0.5em;
+      font-size: 1.7em;
     }
 
     .cta-button {
@@ -131,19 +132,25 @@
 
     @media (max-width: 768px) {
       .main-message { font-size: 2em; }
-      .highlights { font-size: 1.2em; }
+      .highlights { font-size: 1.4em; }
       .cta-button {
         font-size: 1em;
         padding: 12px 25px;
+      }
+      .countdown {
+        font-size: 1.4em;
       }
     }
 
     @media (max-width: 480px) {
       .main-message { font-size: 1.5em; }
-      .highlights { font-size: 1em; }
+      .highlights { font-size: 1.2em; }
       .cta-button {
         font-size: 0.9em;
         padding: 10px 20px;
+      }
+      .countdown {
+        font-size: 1.1em;
       }
     }
   </style>
@@ -153,13 +160,13 @@
     <div class="banner-background"></div>
     <div class="dollar-rain" aria-hidden="true"></div>
 
-    <!-- Version WITHOUT CTA -->
     <div class="banner-content">
       <div class="main-message">FitClub’s 1040EZ Tax Day Deal Ends April 15</div>
       <div class="highlights">
         <div>💵 Just $10.40 To Start</div>
-        <div>🎉 First Month Free</div>
+        <div>📅 No Dues til April 30th</div>
       </div>
+      <a href="https://joinnow.fitclub.net" class="cta-button">Claim the $10.40 Deal Now</a>
       <div class="countdown" id="countdown"></div>
     </div>
   </div>
