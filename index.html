@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>FitClub 1040EZ Tax Day Deal</title>
+  <title>FitClub Tax Day Extension</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -171,12 +171,12 @@
     <div class="dollar-rain" aria-hidden="true"></div>
 
     <div class="banner-content">
-      <div class="main-message">FitClub’s 1040EZ Tax Day Deal Ends April 15</div>
+      <div class="main-message">24-Hour Tax Day Extension 🕛</div>
       <div class="highlights">
-        <div>💵 Just $10.40 To Start</div>
-        <div>❌ No dues until April 30</div>
+        <div>💵 Still Just $10.40 to Start</div>
+        <div>🎉 No Dues Until April 30</div>
+        <div>⚡ Extended One More Day — Ends Tonight!</div>
       </div>
-      <div class="countdown" id="countdown"></div>
     </div>
   </div>
 
@@ -201,14 +201,14 @@
     }
 
     const countdownEl = document.getElementById('countdown');
-    const deadline = new Date('April 15, 2025 23:59:59').getTime();
+    const deadline = new Date('April 16, 2025 23:59:59').getTime();
 
     function updateCountdown() {
       const now = new Date().getTime();
       const distance = deadline - now;
 
       if (distance < 0) {
-        countdownEl.innerText = "Offer expired. IRS says 'maybe next year...'";
+        countdownEl.innerText = "Offer expired. IRS says 'no extensions this time...'";
         return;
       }
 
